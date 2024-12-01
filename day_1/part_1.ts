@@ -1,7 +1,7 @@
 import { TextLineStream } from "@std/streams/text-line-stream";
 
 async function main(): Promise<void> {
-  const file = await Deno.open("input.txt", { read: true })
+  const file = await Deno.open(import.meta.dirname + "/input.txt", { read: true })
   const readableStream = file.readable
     .pipeThrough(new TextDecoderStream)
     .pipeThrough(new TextLineStream)
