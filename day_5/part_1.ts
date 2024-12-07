@@ -46,7 +46,7 @@ export async function main(filePath?: string): Promise<number> {
           continue;
         }
 
-        if (num > rule && ruleIndex < i) {
+        if (ruleIndex < i) {
           isValid = false;
           break;
         }
