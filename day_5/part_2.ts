@@ -1,11 +1,11 @@
 function move(numbers: Array<string>, from: number, to: number) {
-  const val = numbers[from]
-  numbers.splice(from, 1)
-  numbers.splice(to, 0, val)
+  const val = numbers[from];
+  numbers.splice(from, 1);
+  numbers.splice(to, 0, val);
 }
 
 export async function main(filePath?: string): Promise<number> {
-  const filePathArg = Deno.args?.[0]?.replace('--filePath=', '');
+  const filePathArg = Deno.args?.[0]?.replace("--filePath=", "");
   const filename = import.meta.dirname + "/" +
     (filePath ?? filePathArg ?? "input.txt");
   const text = await Deno.readTextFile(filename);
@@ -52,18 +52,17 @@ export async function main(filePath?: string): Promise<number> {
         }
 
         if (ruleIndex < i) {
-          move(numbers, ruleIndex, i)
-          i--
+          move(numbers, ruleIndex, i);
+          i--;
           isValid = false;
         }
       }
     }
 
     if (!isValid) {
-      invalids.push(numbers)
+      invalids.push(numbers);
     }
   }
-
 
   for (const numbers of invalids) {
     const middleIndex = Math.floor(numbers.length / 2);

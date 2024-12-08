@@ -1,5 +1,5 @@
 export async function main(filePath?: string): Promise<number> {
-  const filePathArg = Deno.args?.[0]?.replace('--filePath=', '');
+  const filePathArg = Deno.args?.[0]?.replace("--filePath=", "");
   const filename = import.meta.dirname + "/" +
     (filePath ?? filePathArg ?? "input.txt");
   const text = await Deno.readTextFile(filename);
